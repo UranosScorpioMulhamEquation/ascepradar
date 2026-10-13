@@ -73,8 +73,9 @@ st.markdown("النقطة الشرقية هي الدرجة من البروج ا�
 st.sidebar.header('📋 بيانات المولود والموقع الجغرافي')
 
 name_input = st.sidebar.text_input('اسم المستفيد', 'مولود جديد')
-birth_date = st.sidebar.date_input('تاريخ الميلاد', datetime(1981, 4, 17).date())
-
+birth_date = st.sidebar.date_input(
+    "تاريخ الميلاد:", min_value=date(1900, 1, 1), max_value=date.today()
+)
 selected_country_name = st.sidebar.selectbox('دولة الميلاد', country_list)
 c_code = country_map.get(selected_country_name)
 
